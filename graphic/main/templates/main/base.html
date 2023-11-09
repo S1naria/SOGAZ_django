@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Неnry</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+    <div class="header">
+        🅷🅴🅽🆁🆈
+    </div>
+    <div class="box">
+        <form method="post">
+        {% csrf_token %}
+        <div class="box_head">
+             критерии для получения данных
+        </div>
+        <HR></HR>
+        <div class="choose">
+            <div class="left-buttons">
+                <label class="container">
+                    Страна
+                    <input type="checkbox" id="countryCheckbox">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div class="dropdown">
+                    <button class="dropdownButton" id="dropdownButtonCountry">Выбор страны</button>
+                    <div class="dropdown-content" id="dropdownContentCountry">
+                      {% block country_buttons %}
+                      {%endblock%}
+                    </div>
+                </div>
+                  
+                <label class="container">Федеральный округ (для РФ)
+                    <input type="checkbox" id="stateCheckbox">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div class="dropdown">
+                    <button class="dropdownButton" id="dropdownButtonState">Выбор федерального округа</button>
+                    <div class="dropdown-content" id="dropdownContentState">
+                      {% block states_buttons %}
+                      {%endblock%}
+                    </div>
+                </div>
+
+                <label class="container">Отрасль
+                    <input type="checkbox" id="job">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div class="dropdown">
+                    <button class="dropdownButton" id="dropdownButtonJob">Выбор отрасли</button>
+                    <div class="dropdown-content" id="dropdownContentJob">
+                      {% block industry_buttons %}
+                      {%endblock%}
+                    </div>
+                </div>
+            </div>
+        
+            <div class="right-buttons">
+                <label class="container">Год данных
+                    <input type="checkbox" id="year">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div class="dropdown">
+                    <button class="dropdownButton" id="dropdownButtonYear">Выбор года</button>
+                    <div class="dropdown-content" id="dropdownContentYear">
+                      {% block year_buttons %}
+                      {%endblock%}
+                    </div>
+                </div>
+
+                <label class="container">Наименование класса МКБ 10
+                    <input type="checkbox" id="MKB">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div class="dropdown">
+                    <button class="dropdownButton" id="dropdownButtonMKB">Выбор МКБ 10 класса</button>
+                    <div class="dropdown-content" id="dropdownContentMKB">
+                      {% block MKB_buttons %}
+                      {%endblock%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button_div">
+            <button class="create-chart-button" type="submit">Создать график</button>
+        </div>
+    </form>
+    </div>
+    {% block graphs %}
+    {%endblock%}
+</body>
+</html>
+
+

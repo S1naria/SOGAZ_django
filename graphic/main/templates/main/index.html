@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block country_buttons%}
+
+{% for country in countries %}
+<label class='button_dropdown_checkbox'>
+    <input type="checkbox" name="{{country}}" value="1"> {{country}}
+  </label>
+{%endfor%}
+{%endblock%}
+
+{% block states_buttons %}
+{% for state in states %}
+<label class='button_dropdown_checkbox'>
+    <input type="checkbox" name="{{state}}" value="1"> {{state}}
+</label>
+{%endfor%}
+{%endblock%}
+
+
+{% block industry_buttons %}
+{% for ind in industries %}
+<label class='button_dropdown_checkbox'>
+    <input type="checkbox" name="{{ind}}" value="1"> {{ind}}
+  </label>
+{%endfor%}
+{%endblock%}
+
+
+
+{% block year_buttons %}
+{% for year in years %}
+<label class='button_dropdown_checkbox'>
+    <input type="checkbox" name="{{year}}" value="1"> {{year}}
+  </label>
+{%endfor%}
+{%endblock%}
+
+
+{% block MKB_buttons %}
+{% for name in mkb_names %}
+<label class='button_dropdown_checkbox'>
+    <input type="checkbox" name="{{name}}" value="1"> {{name}}
+  </label>
+{%endfor%}
+{%endblock%}
+
+{% block graphs %}
+<img style="margin-top: 20px;" src="{{ graph_path }}" alt="">
+{% endblock %}
